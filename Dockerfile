@@ -50,5 +50,6 @@ USER user
 # Expose your docker image with the name of your django app
 # EXPOSE can have any number because this number will be mapped to your browser.
 EXPOSE 8888
-CMD gunicorn app.app.wsgi:application --bind 0.0.0.0:$PORT
+# app.app indicates the root level of your folder
+CMD gunicorn src.app.wsgi:application --bind 0.0.0.0:$PORT
 
