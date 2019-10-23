@@ -34,6 +34,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
+# Install the postgres dependency
+RUN apt-get update && apt-get install -y python-software-properties software-properties-common postgresql-10 postgresql-client-10 postgresql-contrib-10
 
 # install environment dependencies
 RUN pip3 install --upgrade pip 
