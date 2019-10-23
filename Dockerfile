@@ -2,12 +2,15 @@
 
 FROM python:3.6
 
-# create and set working directory
-RUN mkdir /app
+# create the directories for the apps you have added
+RUN mkdir /app /core
+
+# set the working directory
 WORKDIR /app
 
-# Add current directory code to working directory
+# Add the current directories for each app you have added
 ADD . /app/
+Add . /core/
 
 # set default environment variables
 ENV PYTHONUNBUFFERED 1
@@ -50,6 +53,6 @@ USER user
 # Expose your docker image with the name of your django app
 # EXPOSE can have any number because this number will be mapped to your browser.
 EXPOSE 8888
-# app.app indicates the root level of your folder
+# src.app indicates the root level of your folder
 CMD gunicorn src.app.wsgi:application --bind 0.0.0.0:$PORT
 

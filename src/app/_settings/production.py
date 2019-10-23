@@ -30,7 +30,6 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-# Added src.core instead of core because Docker is looking for full route
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -39,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'src.core'
+    'src.app.core'
 ]
 
 MIDDLEWARE = [
@@ -123,4 +122,4 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-AUTH_USER_MODEL = 'src.core.User'
+AUTH_USER_MODEL = 'core.User'
