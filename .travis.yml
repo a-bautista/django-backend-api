@@ -1,0 +1,9 @@
+language: python
+python: 
+    - "3.6"
+
+services:
+    - docker
+
+script: 
+    - docker build -t abautista/backend_django_api -f Dockerfile .
