@@ -2,7 +2,6 @@
 
 In the Dockerfile, I had to create a separate folder for the new application core.
 
-
 I have created a folder called settings that divides the scope of the app to be executed in Docker.
 
 1. `base.py` is the original file settings.py

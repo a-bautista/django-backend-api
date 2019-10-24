@@ -11,6 +11,7 @@ djangorestframework = "==3.9.0"
 gunicorn = "*"
 flake8 = "*"
 psycopg2 = "==2.7.5"
+psycopg2-binary = "*"
 
 [requires]
 python_version = "3.6"
