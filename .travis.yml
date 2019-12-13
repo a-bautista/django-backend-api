@@ -10,3 +10,16 @@ before_install:
 
       #script:
       #- docker run abautista/backend_django_api coverage run --source='.' manage.py test app
+      #
+deploy:
+     provider: elasticbeanstalk
+     region: "us-west-2"
+     app: "backend_django_api"
+     env: "BackendDjangoApi-env"
+     bucket_name: "elasticbeanstalk-us-west-2-401387916447" # you go to S3 and look for the bucket (you might see old folders of previous projects inside of this main folder). 
+     bucket_path: "backend_django_api"
+     on:
+       branch: master
+     access_key_id: $AWS_ACCESS_KEY
+     secret_access_key: 
+       secure: "$AWS_SECRET_KEY"

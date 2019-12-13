@@ -89,3 +89,24 @@ If you deploy this image in a container, you will have to change the line `src.d
     `cd src`
     `python3 manage.py makemigrations`
 
+## Deploying your app through AWS
+
+For doing a deploy through Amazon, you log in www.aws.amazon.com then you look for the service ElasticBeanStalk (provides you the load balance for your app) and then in your base configuration you select Docker as your platform and you hit on the Create environment. ElasticBeanStalk handles your traffic via the Load Balancer and when your app reaches a certain threshold then it creates a new virtual machine with your app to distribute the traffic to that virtual machine. In our .travis.yml file, we add the following lines after the script section:
+
+`deploy:`
+     `provider: elasticbeanstalk`
+     `region: "us-west-2"`
+     `app: "backend_django_api"`
+     `env: "BackendDjangoApi-env"` 
+     `bucket_name: "elasticbeanstalk-us-west-2-401387916447" # you go to the menu and type S3, look for the bucket name (you might see old folders of previous projects inside of this main folder).` 
+     `bucket_path: "backend_django_api"` 
+     `on:`
+             `branch: master`
+
+Once you have added the deploy section, you need to type in the menu IAM and look for the Users option, then you click on the Add user button, then in your user name you create a new one (backend-django-api-travis-ci) and in the Access type you click on the Programmatic access. You will see a set of policies but you need to select the AWSElasticBeanStalkFullAccess that provides full access. You click on next and then you create the user and once the user has been created you will be provided credentials that will be shown only once. We will add these keys in Travis by going to the latest intrgration code that was executed and then  More options and then you click on Settings. 
+
+You create two new variables for storing the user access and pwd in the travis website (`AWS_ACCESS_KEY` and `AWS_SECRET_KEY`).  
+
+
+
+
