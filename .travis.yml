@@ -9,4 +9,4 @@ before_install:
     - docker build -t abautista/backend_django_api -f Dockerfile .
 
 script:
-    - docker run abautista/backend_django_api coverage run --source='.' manage.py test task
+    - docker run abautista/backend_django_api coverage run --source='.' manage.py test app
