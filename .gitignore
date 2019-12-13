@@ -1,1 +1,3 @@
-ii
+src/core/migrations/
+src/db.sqlite3
+.idea/*
