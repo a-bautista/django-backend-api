@@ -1,0 +1,2 @@
+Pending:
+	Make sure how can you create tests in Django, so you can automate them in Travis.
